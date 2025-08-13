@@ -26,7 +26,7 @@ export default function Herosection() {
   return (
     <div>
       {/* Top bar */}
-      <div className="flex justify-between items-center p-3 bg-[#FFFAE7] shadow-md gap-3 sm:gap-0">
+      <div className=" w-full flex justify-between  items-center p-3 bg-[#FFFAE7] shadow-md gap-3 sm:gap-0">
         <Image
           width={150}
           height={150}
@@ -66,7 +66,7 @@ export default function Herosection() {
 
       {/* Desktop: Hero with background image */}
       <div
-        className="hidden md:flex w-full flex-row items-center justify-between min-h-screen bg-cover bg-center px-4 sm:px-6 md:px-16 py-8"
+        className="hidden md:flex w-full flex-row items-center justify-between min-h-screen bg-cover bg-center px-4 sm:px-6 md:px-16 py-8 "
         style={{ backgroundImage: "url('/heroimg.jpg')" }}
       >
         <h2 className="max-w-xl text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug tracking-wide drop-shadow-lg text-center md:text-left">

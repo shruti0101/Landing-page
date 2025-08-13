@@ -39,7 +39,7 @@ const About = () => {
             {stats.map((item, idx) => (
               <div key={idx}>
                 <h2 className="text-4xl sm:text-5xl font-bold">
-                  <CountUp end={item.end} duration={2.5} separator="," />
+                  <CountUp end={item.end} duration={9.8} separator="," />
                   {item.suffix}
                 </h2>
                 <p className="mt-2 text-base sm:text-lg">{item.label}</p>

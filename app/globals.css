@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import 'keen-slider/keen-slider.min.css';
+@import "aos/dist/aos.css";
 
 :root {
   --background: #ffffff;
@@ -18,6 +19,7 @@
 
 body {
   font-family: var(--font-raleway), sans-serif;
+  overflow-x: hidden;
 }
 
 

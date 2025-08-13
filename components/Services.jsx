@@ -2,8 +2,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Popup from "@/components/Popup";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Services = () => {
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration in ms
+      once: true,    // Run animation only once
+    });
+  }, []);
+
+
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const servicesTop = [
@@ -33,14 +45,14 @@ const Services = () => {
       <section className="bg-[#FAF7F2] md:py-14">
         <div className="max-w-7xl mx-auto px-4">
           {/* Top cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesTop.map((service, idx) => (
               <Card key={idx} {...service} onEnquiry={() => setIsFormOpen(true)} />
             ))}
           </div>
 
           {/* Bottom larger cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+          <div data-aos="fade-up" data-aos-duration="1500" className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
             {servicesBottom.map((service, idx) => (
               <Card key={idx} {...service} large onEnquiry={() => setIsFormOpen(true)} />
             ))}
@@ -56,7 +68,7 @@ const Services = () => {
 
 function Card({ img, title, desc, large, onEnquiry }) {
   return (
-    <div
+    <div 
       className={`bg-white border-2 border-stone-600 rounded-2xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:bg-gradient-to-b hover:from-white hover:to-[#f9fafb] ${
         large ? "sm:col-span-1" : ""
       }`}
@@ -67,7 +79,7 @@ function Card({ img, title, desc, large, onEnquiry }) {
       <div className="p-4 text-center">
         <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
         <p className="text-gray-600 text-base mb-6">{desc}</p>
-        <button
+        <button data-aos="zoom-in"
           onClick={onEnquiry}
           className="bg-[#1279AF] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
         >

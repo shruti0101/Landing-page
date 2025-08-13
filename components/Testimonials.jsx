@@ -7,32 +7,30 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Testimonials = () => {
-  useEffect(() => {
-    const swiper = new Swiper(".multiple-slide-carousel", {
-      modules: [Navigation, Autoplay],
-      loop: true,
-      slidesPerView: 3,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      breakpoints: {
-        1024: { slidesPerView: 3, spaceBetween: 30 },
-        768: { slidesPerView: 2, spaceBetween: 20 },
-        0: { slidesPerView: 1, spaceBetween: 15 },
-      },
-    });
+useEffect(() => {
+  const swiper = new Swiper(".multiple-slide-carousel", {
+    modules: [Navigation, Autoplay],
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    autoHeight: false, // 🔹 Prevents height from changing per slide
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    breakpoints: {
+      1024: { slidesPerView: 3, spaceBetween: 30 },
+      768: { slidesPerView: 2, spaceBetween: 20 },
+      0: { slidesPerView: 1, spaceBetween: 15 },
+    },
+  });
+}, []);
 
-    return () => {
-      swiper.destroy(true, true);
-    };
-  }, []);
 
   const testimonials = [
     {
@@ -41,11 +39,11 @@ const Testimonials = () => {
     },
     {
       text: "Thanks to Ryka, our hotel restrooms now reflect modern luxury. Guests often compliment the sleek, clean design—an upgrade that has elevated the overall experience and enhanced our amenities significantly.",
-      logo: "/clientele/club-mahindra.webp",
+      logo: "/club.webp",
     },
     {
       text: "Ryka’s skilled team installed the toilet cubicles and wall paneling flawlessly, delivering exceptional quality with a perfect finish and precise alignment. Their professionalism ensured a smooth process.",
-      logo: "/clientele/Cris.webp",
+      logo: "/cris.webp",
     },
     {
       text: "The Freasking Booths installed at DMRC offer outstanding durability and performance. Built to withstand heavy usage, they reflect quality engineering and robust construction. A perfect fit for high-footfall environments.",
@@ -88,18 +86,19 @@ const Testimonials = () => {
         <div className="swiper multiple-slide-carousel swiper-container relative px-4 sm:px-6">
           <div className="swiper-wrapper ">
             {testimonials.map((item, index) => (
-              <div className="swiper-slide" key={index}>
-                <div className=" border border-black bg-white rounded-2xl shadow-md p-4 sm:p-6 flex flex-col justify-between min-h-[300px] sm:min-h-[380px] text-center">
-                  <p className="text-gray-700 text-base sm:text-lg italic leading-relaxed">
-                    {item.text}
-                  </p>
-                  <img
-                    src={item.logo}
-                    alt="Client Logo"
-                    className="h-20 sm:h-34 object-contain mx-auto mt-4 sm:mt-6"
-                  />
-                </div>
-              </div>
+            <div className="swiper-slide" key={index}>
+  <div className="border border-black bg-white rounded-2xl shadow-md p-4 sm:p-6 flex flex-col justify-between h-full min-h-[380px] text-center">
+    <p className="text-gray-700 text-base sm:text-lg italic leading-relaxed flex-grow">
+      {item.text}
+    </p>
+    <img
+      src={item.logo}
+      alt="Client Logo"
+      className="h-30 object-contain mx-auto mt-4 sm:mt-6"
+    />
+  </div>
+</div>
+
             ))}
           </div>
 
