@@ -1,14 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+
+import { Raleway } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["400", "500", "700"], // choose weights you need
 });
 
 export const metadata = {
@@ -19,10 +18,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+    
+      </head>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${raleway.variable}  antialiased`}
       >
         {children}
+
+       
       </body>
     </html>
   );
