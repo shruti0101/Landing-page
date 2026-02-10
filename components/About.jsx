@@ -5,10 +5,10 @@ import CountUp from "react-countup";
 
 const About = () => {
   const stats = [
-    { end: 15000, suffix: "K+", label: "Projects" },
+    { end: 15000, suffix: "+", label: "Projects" },
     { end: 15, suffix: "+", label: "Year of Experience" },
-    { end: 50000, suffix: "K+", label: "Cubicle Installed" },
-    { end: 11000, suffix: "K+", label: "Happy Client" },
+    { end: 50000, suffix: "+", label: "Cubicle Installed" },
+    { end: 11000, suffix: "+", label: "Happy Client" },
   ];
 
   return (
@@ -23,12 +23,9 @@ const About = () => {
           className="border-t-4 border-black w-24 mx-auto mt-4"
           style={{ borderStyle: "dotted" }}
         ></div>
-        <p className="mt-6 text-center max-w-3xl mx-auto text-sm sm:text-base leading-relaxed px-2">
-          Modern Restroom Cubicles partition Solutions with Style & Durability.
-          We specialize in high-quality HPL restroom partitions that are
-          durable, hygienic, and perfect for high-traffic commercial spaces.
-          Backed by expert installation, fast delivery, and reliable service, we
-          ensure functional excellence with a modern look.
+        <p className="mt-6 text-center max-w-5xl mx-auto text-sm sm:text-base leading-relaxed px-2">
+       We are a toilet cubicle manufacturer and supplier offering high-quality HPL restroom partitions. Our modern cubicles are stylish, durable, and hygienic—ideal for offices, malls, and commercial spaces. Made of premium HPL, our toilet cubicles resist impact, moisture, and scratches, ensuring long-lasting performance. We offer fast installation, expert customer service, and many designs and colors for the perfect fit. Choose affordable, reliable solutions for high-traffic areas from a leading supplier in India.
+
         </p>
       </section>
 
@@ -68,12 +65,12 @@ const About = () => {
   {/* Icons grid */}
   <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-7 px-8 md:px-0 sm:gap-10 pb-12">
     {[
-      { src: "/layer1.webp", alt: "Anti-Bacteria", label: "Anti-Bacteria", w: 95, h: 95 },
-      { src: "/layer6.webp", alt: "Highly Durable", label: "Highly Durable", w: 75, h: 70 },
-      { src: "/layer3.webp", alt: "Fire Resistant", label: "Fire Resistant", w: 95, h: 95 },
-      { src: "/layer4.webp", alt: "Easy to Clean", label: "Easy to Clean", w: 95, h: 95 },
-      { src: "/layer5.webp", alt: "Impact Resistant", label: "Impact Resistant", w: 100, h: 100 },
-      { src: "/layer2.webp", alt: "Scratch & Graffiti Resistant", label: <>Scratch & Graffiti <br /> Resistant</>, w: 85, h: 85 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/layer1_d54dxm.webp", alt: "Anti-Bacteria", label: "Anti-Bacteria", w: 95, h: 95 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975028/layer6_qw9dqv.webp", alt: "Highly Durable", label: "Highly Durable", w: 75, h: 70 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975027/layer3_w32kdt.webp", alt: "Fire Resistant", label: "Fire Resistant", w: 95, h: 95 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975027/layer4_wexjbb.webp", alt: "Easy to Clean", label: "Easy to Clean", w: 95, h: 95 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975028/layer5_ktdwdy.webp", alt: "Impact Resistant", label: "Impact Resistant", w: 100, h: 100 },
+      { src: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975026/layer2_wwhccr.webp", alt: "Scratch & Graffiti Resistant", label: <>Scratch & Graffiti <br /> Resistant</>, w: 85, h: 85 },
     ].map((item, i) => (
       <div key={i} className="flex flex-col items-center text-center gap-4">
         <Image

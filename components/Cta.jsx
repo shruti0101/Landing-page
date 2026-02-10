@@ -1,10 +1,9 @@
-'use client'
-
-import React from "react";
-import Popup from "@/components/Popup";
+"use client";
 import { useState } from "react";
+import PopupForm from "./Popup";
+
 const Cta = () => {
-      const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <>
       <section className="bg-[#1678AE]">
@@ -14,11 +13,11 @@ const Cta = () => {
             product details.
           </p>
 
-          <button
-           onClick={() => setIsFormOpen(true)}
-            className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 shadow-lg"
+          <button onClick={() => setIsFormOpen(true)}
+
+            className="bg-[#E7000B] cursor-pointer text-white px-8 py-4 rounded-lg font-medium hover:opacity-90 transition duration-300  text-lg"
           >
-            Enquiry Now
+            Connect With Us
           </button>
         </div>
       </section>
@@ -28,6 +27,7 @@ const Cta = () => {
           <p className="text-white text-start   md:text-left text-sm md:text-lg  max-w-2xl leading-snug">
             Copyright © 2025 Ryka Restroom Cubicles . All Rights Reserved.
           </p>
+          <a href="https://toiletcubiclespartition.com/privacy-policy" className="text-white underline">Privacy Policy</a>
 
           <a href="https://promozionebranding.com/" className="text-white ">
             Developed & Managed by{" "}
@@ -35,9 +35,8 @@ const Cta = () => {
           </a>
         </div>
       </section>
+      <PopupForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
 
-      
-            <Popup isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </>
   );
 };

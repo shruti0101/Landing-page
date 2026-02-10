@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 export default function PopupForm({ isOpen, onClose }) {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +12,11 @@ export default function PopupForm({ isOpen, onClose }) {
     place: "",
     phone: "",
     description: "",
+    _cc: "inquiry.promozione@gmail.com",
+    _nosponsor: "true",
+    _subject: "🚀 New Enquiry from Website",
   });
+
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -27,7 +33,9 @@ export default function PopupForm({ isOpen, onClose }) {
   // close on Esc
   useEffect(() => {
     if (!isOpen) return;
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
@@ -44,7 +52,7 @@ export default function PopupForm({ isOpen, onClose }) {
 
     try {
       const res = await fetch(
-        "https://formsubmit.co/ajax/shrutiguptacu@gmail.com",
+        "https://formsubmit.co/ajax/rykarestroomcubicle@gmail.com",
         {
           method: "POST",
           headers: {
@@ -64,13 +72,15 @@ export default function PopupForm({ isOpen, onClose }) {
           place: "",
           phone: "",
           description: "",
+          _cc: "",
+          _nosponsor: "true",
+          _subject: "🚀 New Enquiry from Website",
         });
 
-        // keep message for 2s, then close
+        // ✅ redirect to Thank You page after 1.5s
         setTimeout(() => {
-          setStatus("");
-          onClose();
-        }, 2000);
+          router.push("/thankyou"); 
+        }, 1500);
       } else {
         setStatus("❌ Something went wrong. Please try again.");
       }
@@ -87,11 +97,11 @@ export default function PopupForm({ isOpen, onClose }) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 p-4"
-      onClick={onClose} // click on backdrop closes
+      onClick={onClose}
     >
       <div
         className="bg-white rounded-2xl shadow-xl w-full max-w-2xl p-6 relative"
-        onClick={(e) => e.stopPropagation()} // prevent backdrop close when clicking inside
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -170,6 +180,7 @@ export default function PopupForm({ isOpen, onClose }) {
             <input
               name="phone"
               value={formData.phone}
+              maxLength={10}
               onChange={handleChange}
               placeholder="Phone number"
               className="flex-1 px-3 py-2 border rounded-r-md bg-stone-100"

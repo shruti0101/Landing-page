@@ -3,49 +3,49 @@ import React, { useState } from "react";
 import Image from "next/image";
 import PopupForm from "@/components/Popup"; // make sure this path matches your project
 const logos = [
-  "/clientele/daikin.webp",
-  "/clientele/jurasik park.webp",
-  "/clientele/kidzania.webp",
-  "/clientele/m2k.webp",
-  "/clientele/jsw.webp",
-  "/clientele/radisson.webp",
-  "/clientele/policy.webp",
-    "/clientele/godrej.webp",
-  "/clientele/mitsubishi.webp",
-    "/clientele/tata.webp",
-  "/clientele/bikanervala.webp",
-  "/clientele/hdfc.webp",
-  "/clientele/metro.webp",
-  "/clientele/zudio.webp",
-  "/clientele/tarak.webp",
-  "/clientele/siemens.webp",
-  "/clientele/orange.webp",
-  "/clientele/m3m.webp",
-  "/clientele/skyline.webp"
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976081/daikin_ksvvb0.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976089/jurasik_park_qk4669.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976090/kidzania_xbtfcd.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976093/m2k_zwlr1u.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976088/jsw_truixc.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976104/radisson_onvlgg.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976103/policy_qntsmt.webp",
+    "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976084/godrej_ys8pxk.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976099/mitsubishi_n7sw1b.webp",
+    "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976109/tata_oxamqt.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976077/bikanervala_li2fta.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976086/hdfc_nxh0tk.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976098/metro_tp3sal.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976114/zudio_oqqoin.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976108/tarak_gbokme.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976106/siemens_uudvhs.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976101/orange_tatbuo.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976095/m3m_st5v4i.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976107/skyline_wtaqqa.webp"
 ];
 const moreLogos = [
-  "/clientele/abp.webp",
-  "/clientele/policy.webp",
-  "/clientele/daikin.webp",
-  "/clientele/motherhood.webp",
-  "/clientele/gsk.webp",
-    "/clientele/skyline.webp",
-  "/clientele/getwell.webp",
-  "/clientele/crystal.webp",
-  "/clientele/jurasik park.webp",
-  "/clientele/kidzania.webp",
-  "/clientele/cinepolis.webp",
-  "/clientele/dlf.webp",
-  "/clientele/maxxis.webp",
-  "/clientele/ikuni.webp",
-  "/clientele/oyo.webp",
-  "/clientele/uno.webp",
-  "/clientele/vedanata.webp",
-  "/clientele/tarak.webp",
-  "/clientele/orange.webp",
-  "/clientele/Ykk.webp",
-  "/clientele/mercedes.webp",
-  "/clientele/whirlpool.webp"
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976077/abp_uqf5jp.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976103/policy_qntsmt.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976081/daikin_ksvvb0.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976100/motherhood_olhru1.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976085/gsk_hb1gqn.webp",
+    "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976107/skyline_wtaqqa.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976083/getwell_mwkhzt.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976080/crystal_z9kt6m.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976089/jurasik_park_qk4669.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976090/kidzania_xbtfcd.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976077/cinepolis_uk2swj.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976082/dlf_zypghf.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976096/maxxis_cyxpnf.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976086/ikuni_om9j3z.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976102/oyo_iurge0.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976110/uno_a8ykt4.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976111/vedanata_b8qdbn.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976108/tarak_gbokme.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976101/orange_tatbuo.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976113/Ykk_yz0bio.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976097/mercedes_rinc3z.webp",
+  "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976112/whirlpool_hqigev.webp"
 ];
 
 export default function Clientele() {
@@ -75,12 +75,27 @@ export default function Clientele() {
         </div>
 
         <div className="mt-10 text-center">
-          <button
+          {/* <button
             onClick={() => setIsFormOpen(true)}
             className="bg-[#1279AF] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
           >
-            View More
-          </button>
+         
+          </button> */}
+
+
+ <a
+      href="https://wa.me/+919873516255"
+      className=" bg-[#1279AF] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp with Rykarestroom Cubicles "
+    >
+       View More
+    </a>
+
+
+
         </div>
       </section>
 

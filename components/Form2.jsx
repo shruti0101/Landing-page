@@ -50,25 +50,21 @@ const handleSubmit = async (e) => {
       payload.append(key, value);
     });
 
-
     payload.append("_subject", "🚀 New Lead from Website");
     payload.append("_captcha", "false");
     payload.append("_template", "box");
     payload.append("_nosponsor", "true");
     payload.append("_cc", "inquiry.promozione@gmail.com");
 
-    const res = await fetch(
-      "https://formsubmit.co/rykarestroomcubicle@gmail.com",
-      {
-        method: "POST",
-        body: payload,
-      }
-    );
+    const res = await fetch("https://formsubmit.co/rykarestroomcubicle@gmail.com", {
+      method: "POST",
+      body: payload,
+    });
 
     if (res.ok) {
-      setStatus("Your request has been submitted!");
+      setStatus("✅ Your request has been submitted!");
 
-      // reset form
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -79,16 +75,9 @@ const handleSubmit = async (e) => {
       });
       setCaptchaValue(null);
 
-   
-      const whatsappNumber = "+919873516255"; 
-      const message = `Hi, I’m interested in Toilet Cubicles. Can you share details? `;
-
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        message
-      )}`;
-
-      // Redirecting it to WhatsApp
-      window.location.href = whatsappUrl;
+      
+      const phoneNumber = "+919873516255";
+      window.location.href = `tel:${phoneNumber}`;
     } else {
       setStatus("❌ Something went wrong. Please try again.");
     }
@@ -100,8 +89,9 @@ const handleSubmit = async (e) => {
 
 
 
+
   return (
-    <div className=" backdrop-blur-xs p-4 sm:p-5 rounded-2xl shadow-xl w-full max-w-xl mx-auto">
+    <div className="block md:hidden backdrop-blur-xs mt-4 p-4 sm:p-5 rounded-2xl shadow-xl w-full max-w-xl mx-auto">
       <h3 className="text-lg sm:text-xl md:text-2xl text-center font-bold text-black md:text-white mb-2">
         Looking for Restroom Cubicles?
       </h3>

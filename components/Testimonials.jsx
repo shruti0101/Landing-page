@@ -35,41 +35,41 @@ useEffect(() => {
   const testimonials = [
     {
       text: "Ryka’s Carlton Prime doors streamlined our mall renovation with no wet work, minimal disruption, and significant time saved. The upgrade made our restrooms feel modern, clean, and more premium to visitors.",
-      logo: "/clientele/cinepolis.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976077/cinepolis_uk2swj.webp",
     },
     {
       text: "Thanks to Ryka, our hotel restrooms now reflect modern luxury. Guests often compliment the sleek, clean design—an upgrade that has elevated the overall experience and enhanced our amenities significantly.",
-      logo: "/club.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/club_rhzyov.webp",
     },
     {
       text: "Ryka’s skilled team installed the toilet cubicles and wall paneling flawlessly, delivering exceptional quality with a perfect finish and precise alignment. Their professionalism ensured a smooth process.",
-      logo: "/cris.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/cris_unatvv.webp",
     },
     {
       text: "The Freasking Booths installed at DMRC offer outstanding durability and performance. Built to withstand heavy usage, they reflect quality engineering and robust construction. A perfect fit for high-footfall environments.",
-      logo: "/clientele/metro.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976098/metro_tp3sal.webp",
     },
     {
       text: "Carlton Pristine was installed at our Uno Minda facility on time. The quick, hassle-free installation and clean, high-quality finish showed true professionalism and efficiency. Highly appreciated work.",
-      logo: "/clientele/uno.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976110/uno_a8ykt4.webp",
     },
     {
       text: "Ryka Restroom Cubicles delivered luxury and hygiene with sleek, durable, low-maintenance partitions. Their professional team ensured a smooth upgrade, transforming commercial restrooms with modern style and quality.",
-      logo: "/clientele/saya.png",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976105/saya_sneabk.png",
     },
     {
       text: "When upgrading restrooms at K. R. Mangalam University, we needed a reliable partner. Choosing Grand and Canvas EVO cubicles was the right decision, delivering quality, professionalism, and timely execution.",
-      logo: "/clientele/kr.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976093/kr_gpoxul.webp",
     },
     {
       text: "Despite tight deadlines, the Carlton Prime cubicles were delivered and installed with precision. The team demonstrated excellent workmanship, professionalism, and a commitment to high standards.",
-      logo: "/clientele/zudio.webp",
+      logo: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761976114/zudio_oqqoin.webp",
     },
   ];
 
   return (
     <section
-      style={{ backgroundImage: "url('/testimonial.webp')" }}
+      style={{ backgroundImage: "url('https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975033/testimonial_evbhug.webp')" }}
       className="bg-center bg-cover bg-no-repeat py-12 sm:py-16 bg-[#FEFAEB]"
     >
       <div>
@@ -115,3 +115,4 @@ useEffect(() => {
 };
 
 export default Testimonials;
+
