@@ -126,7 +126,7 @@ export default function HeroSection() {
         <div className="md:block absolute inset-0 flex items-center justify-center z-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full flex flex-col lg:flex-row items-start lg:items-center justify-between">
             {/* Left Content */}
-            <div className="bg-black/40 rounded-2xl p-6 sm:p-8 max-w-lg">
+            <div className="bg-black/40 rounded-2xl p-6 sm:p-8 max-w-lg w-full">
               <h4 className="text-white text-lg sm:text-xl font-medium mb-2">
                 {currentSlide.title}
               </h4>
@@ -137,7 +137,7 @@ export default function HeroSection() {
                 {currentSlide.description}
               </p>
 
-              <div className="flex flex-wrap gap-3 justify-center w-full">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <a
                   href="https://wa.me/919873516255"
                   target="_blank"
