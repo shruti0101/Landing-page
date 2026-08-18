@@ -96,7 +96,7 @@ export default function HeroSection() {
       </div>
 
       {/* ✅ Hero Section */}
-      <div className="relative w-full h-[450px] sm:h-[500px] md:h-[680px] overflow-hidden">
+      <div className="relative w-full h-[450px] sm:h-[500px] md:h-[785px] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
