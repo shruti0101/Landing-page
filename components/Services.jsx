@@ -157,7 +157,7 @@ function Card({ img, title, desc, large, onClick }) {
         {/* ENQUIRY */}
          <a
          onClick={(e)=>{e.stopPropagation()}}
-          href="tel:+919873516255"
+          href="tel:+919667233007"
           className="bg-[#1279AF] text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition"
         >
           Enquiry Now

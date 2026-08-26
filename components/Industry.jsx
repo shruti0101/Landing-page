@@ -98,7 +98,7 @@ export default function SimpleSlider() {
         {/* CTA */}
         <div className="mt-10 text-center">
           <a
-            href="tel:+919873516255"
+            href="tel:+919667233007"
             className="inline-block bg-[#E7000B] text-white px-2 md:px-5 py-3  rounded-lg font-semibold md:text-lg hover:opacity-90 transition-all duration-300"
           >
           Instant Callback from Supplier

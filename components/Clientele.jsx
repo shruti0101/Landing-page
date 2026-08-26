@@ -84,7 +84,7 @@ export default function Clientele() {
 
 
  <a
-      href="https://wa.me/+919873516255"
+      href="https://wa.link/nt1jey"
       className=" bg-[#1279AF] text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
 
       target="_blank"

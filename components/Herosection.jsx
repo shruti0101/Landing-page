@@ -88,10 +88,10 @@ export default function HeroSection() {
           className="w-[120px] sm:w-[150px] md:w-[180px] h-auto"
         />
         <a
-          href="tel:+919873516255"
+          href="tel:+919667233007"
           className="bg-gradient-to-r from-[#1472B0] to-blue-700 text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out text-sm sm:text-xl animate-bounce"
         >
-          📞 +91-9873516255
+          📞 +91-9667233007
         </a>
       </div>
 
@@ -139,7 +139,7 @@ export default function HeroSection() {
 
               <div className="flex flex-wrap gap-3 justify-center">
                 <a
-                  href="https://wa.me/919873516255"
+                  href="https://wa.link/nt1jey"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="md:inline-flex hidden items-center gap-2 bg-[#25D366] text-white font-bold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow hover:scale-105 transition text-sm sm:text-lg "
@@ -147,7 +147,7 @@ export default function HeroSection() {
                   <FaWhatsapp className="text-lg" /> {currentSlide.button}
                 </a>
                 <a
-                  href="tel:+919873516255"
+                  href="tel:+919667233007"
                   className="md:inline-flex hidden items-center gap-2 bg-gradient-to-r from-[#1472B0] to-blue-700 text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out text-sm sm:text-lg "
                 >
                   <FaPhone /> Call Us Today

@@ -80,7 +80,7 @@ const handleSubmit = async (e) => {
       setCaptchaValue(null);
 
    
-      const whatsappNumber = "+919873516255"; 
+      const whatsappNumber = "+919667233007"; 
       const message = `Hi, I’m interested in Toilet Cubicles. Can you share details? `;
 
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

@@ -76,7 +76,7 @@ const handleSubmit = async (e) => {
       setCaptchaValue(null);
 
       
-      const phoneNumber = "+919873516255";
+      const phoneNumber = "+919667233007";
       window.location.href = `tel:${phoneNumber}`;
     } else {
       setStatus("❌ Something went wrong. Please try again.");
