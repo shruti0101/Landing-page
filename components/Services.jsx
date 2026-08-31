@@ -18,17 +18,17 @@ const Services = () => {
 
   const servicesTop = [
     {
-      img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/heroimg_avoue4.webp",
+    img: "/services/3.webp",
       title: "Kids Restroom Partitions",
       desc: "Our Kids Restroom Partitions are specially designed for children.",
     },
     {
-      img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/closet-urinal_ft3qgh.webp",
+    img: "/services/4.webp",
       title: "Urinal Partitions",
       desc: "Ensuring privacy and hygiene in public restrooms.",
     },
     {
-      img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975030/services-coloured_gvodti.webp",
+    img: "/services/5.webp",
       title: "Premium Finish",
       desc: "Elegant, durable finishes for modern commercial restrooms.",
     },
@@ -36,12 +36,12 @@ const Services = () => {
 
   const servicesBottom = [
     {
-      img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975031/services-red_gwvysl.webp",
+    img: "/services/1.webp",
       title: "Public Restrooms Partitions",
       desc: "Upgrade your washroom spaces with Ryka Restroom Cubicles.",
     },
     {
-      img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975032/services-white_hsctrx.webp",
+    img: "/services/2.webp",
       title: "Luxe Partition Systems",
       desc: "Discover the perfect blend of luxury and functionality with Luxe Partition Systems.",
     },

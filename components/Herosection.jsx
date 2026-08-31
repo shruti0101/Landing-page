@@ -9,35 +9,35 @@ import { FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const slides = [
   {
-    img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/4_wbiq4n.webp",
+    img: "/1.webp",
     title: "Ryka Restroom Cubicles",
     subtitle: "Ryka Restroom Cubicles",
     description:
       "Serving offices, malls, schools & commercial spaces across India – 15+ years experience in custom restroom partition solutions.",
   },
   {
-    img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/2_wfizni.webp",
+    img: "/2.webp",
     title: "Ryka Restroom Cubicles",
     subtitle: "Kids Cubicles",
     description:
       "Bright, safe, and child-friendly restroom cubicles designed specially for schools, preschools, and daycare centers. Rounded edges, vibrant colors, and durable materials ensure maximum safety and comfort for kids.",
   },
   {
-    img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/3_yqeinj.webp",
+    img: "/3.webp",
     title: "Ryka Restroom Cubicles",
     subtitle: "Office Partitions",
     description:
       "Durable & stylish office partition systems designed to maximize space and privacy.",
   },
   {
-    img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/1_kokcfd.webp",
+    img: "/4.webp",
     title: "Ryka Restroom Cubicles",
     subtitle: "School Restrooms",
     description:
       "Safe, hygienic, and colorful restroom cubicles tailored for schools & institutions.",
   },
   {
-    img: "https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975024/2_wfizni.webp",
+    img: "/5.webp",
     title: "Ryka Restroom Cubicles",
     subtitle: "Mall Washrooms",
     description:
