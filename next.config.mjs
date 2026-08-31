@@ -2,7 +2,13 @@
 const nextConfig = {
   output: 'export', // Static HTML export
   images: {
-    unoptimized: true, // Disable image optimization for static hosting
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
   trailingSlash: true, // Helps avoid 404s for static export on some hosts
 };
