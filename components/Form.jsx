@@ -1,11 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import React, { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 const Form = () => {
-  const router = useRouter();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,19 +13,29 @@ const Form = () => {
     phone: "",
     description: "",
   });
+
   const [status, setStatus] = useState("");
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    
     if (name === "phone") {
       const digitsOnly = value.replace(/\D/g, "");
+
+      // Allow maximum 10 digits
       if (digitsOnly.length > 10) return;
-      setFormData({ ...formData, [name]: digitsOnly });
+
+      setFormData((prev) => ({
+        ...prev,
+        [name]: digitsOnly,
+      }));
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
@@ -34,92 +43,125 @@ const Form = () => {
     setCaptchaValue(value);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!captchaValue) {
-    setStatus("⚠️ Please verify the CAPTCHA before submitting.");
-    return;
-  }
+    // CAPTCHA validation
+    // if (!captchaValue) {
+    //   setStatus("⚠️ Please verify the CAPTCHA before submitting.");
+    //   return;
+    // }
 
-  setStatus("⏳ Sending...");
-
-  try {
-    const payload = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      payload.append(key, value);
-    });
-
-
-    payload.append("_subject", "🚀 New Lead from Website");
-    payload.append("_captcha", "false");
-    payload.append("_template", "box");
-    payload.append("_nosponsor", "true");
-    payload.append("_cc", "inquiry.promozione@gmail.com");
-
-    const res = await fetch(
-      "https://formsubmit.co/rykarestroomcubicle@gmail.com",
-      {
-        method: "POST",
-        body: payload,
-      }
-    );
-
-    if (res.ok) {
-      setStatus("Your request has been submitted!");
-
-      // reset form
-      setFormData({
-        name: "",
-        email: "",
-        projectType: "",
-        place: "",
-        phone: "",
-        description: "",
-      });
-      setCaptchaValue(null);
-
-   
-      const whatsappNumber = "+919667233007"; 
-      const message = `Hi, I’m interested in Toilet Cubicles. Can you share details? `;
-
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        message
-      )}`;
-
-      // Redirecting it to WhatsApp
-      window.location.href = whatsappUrl;
-    } else {
-      setStatus("❌ Something went wrong. Please try again.");
+    // Phone validation
+    if (formData.phone.length !== 10) {
+      setStatus("⚠️ Please enter a valid 10-digit phone number.");
+      return;
     }
-  } catch (error) {
-    console.error(error);
-    setStatus("❌ Failed to send. Please try later.");
-  }
-};
 
+    setIsSubmitting(true);
+    setStatus("⏳ Sending...");
 
+    try {
+      // API payload
+      const data = {
+        supplierToken: "6a9bb67ac077e066ff1e0d9e",
+        platform: "Ryka Restroom Cubicles",
+        platformEmail: "rykarestroomcubicle@gmail.com",
+
+        name: formData.name,
+        email: formData.email,
+        company: "NA",
+        phone: formData.phone,
+
+        // Mapping your existing form field
+        // projectType -> product
+        product: formData.projectType,
+
+        place: formData.place || "N/A",
+
+        // Mapping your existing form field
+        // description -> message
+        message: formData.description,
+      };
+
+      const res = await axios.post(
+        "https://brandbnalo.com/api/form/add",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.status >= 200 && res.status < 300) {
+        setStatus("✅ Your request has been submitted!");
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          projectType: "",
+          place: "",
+          phone: "",
+          description: "",
+        });
+
+        // Reset CAPTCHA
+        // setCaptchaValue(null);
+
+        // Redirect to WhatsApp
+        const whatsappNumber = "919667233007";
+
+        const message =
+          "Hi, I’m interested in Toilet Cubicles. Can you share details?";
+
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          message
+        )}`;
+
+        // Small delay so the success message can be displayed
+        setTimeout(() => {
+          window.location.href = whatsappUrl;
+        }, 500);
+      } else {
+        setStatus("❌ Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+
+      if (error.response) {
+        console.error("API response:", error.response.data);
+
+        setStatus(
+          error.response.data?.message ||
+          "❌ Something went wrong while submitting the form."
+        );
+      } else if (error.request) {
+        setStatus(
+          "❌ Unable to connect to the server. Please check your internet connection."
+        );
+      } else {
+        setStatus("❌ Failed to send. Please try later.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <div className=" backdrop-blur-xs p-4 sm:p-5 rounded-2xl shadow-xl w-full max-w-xl mx-auto">
+    <div className="backdrop-blur-xs p-4 sm:p-5 rounded-2xl shadow-xl w-full max-w-xl mx-auto">
       <h3 className="text-lg sm:text-xl md:text-2xl text-center font-bold text-black md:text-white mb-2">
         Looking for Restroom Cubicles?
       </h3>
+
       <p className="text-black md:text-white mb-4 text-center text-sm sm:text-base">
         Let our team reach out to you!
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-    
+        {/* Name / Email / Project / Place */}
         <div className="grid grid-cols-2 gap-4">
-          <input
-            type="hidden"
-            name="_subject"
-            value="🚀 New Lead from Website"
-          />
-         <input type="hidden" name="_cc" value="inquiry.promozione@gmail.com" />
-
-          <input type="hidden" name="_nosponsor" value="true" />
           <input
             type="text"
             name="name"
@@ -127,8 +169,10 @@ const handleSubmit = async (e) => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full border rounded-lg p-2 bg-[#F5F5F4]"
+            disabled={isSubmitting}
+            className="w-full border rounded-lg p-2 bg-[#F5F5F4] outline-none"
           />
+
           <input
             type="email"
             name="email"
@@ -136,14 +180,17 @@ const handleSubmit = async (e) => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full border rounded-lg p-2 bg-[#F5F5F4]"
+            disabled={isSubmitting}
+            className="w-full border rounded-lg p-2 bg-[#F5F5F4] outline-none"
           />
+
           <select
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
             required
-            className="w-full border rounded-lg p-2 bg-[#F5F5F4]"
+            disabled={isSubmitting}
+            className="w-full border rounded-lg p-2 bg-[#F5F5F4] outline-none"
           >
             <option value="">Select Project Type</option>
             <option value="Commercial">Commercial</option>
@@ -152,22 +199,30 @@ const handleSubmit = async (e) => {
             <option value="Educational">Educational</option>
             <option value="Other">Other</option>
           </select>
+
           <input
             type="text"
             name="place"
             placeholder="Place"
             value={formData.place}
             onChange={handleChange}
-            className="w-full border rounded-lg p-2 bg-[#F5F5F4]"
+            disabled={isSubmitting}
+            className="w-full border rounded-lg p-2 bg-[#F5F5F4] outline-none"
           />
         </div>
 
- 
+        {/* Phone */}
         <div className="flex items-center border rounded-lg overflow-hidden">
-          <div className="flex items-center px-3 bg-gray-100">
-            <img src="https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/flag_z7xfex.jpg" alt="flag" className="w-6 h-4 object-cover" />
+          <div className="flex items-center px-3 bg-gray-100 h-full">
+            <img
+              src="https://res.cloudinary.com/dzbkxqqo9/image/upload/v1761975025/flag_z7xfex.jpg"
+              alt="India flag"
+              className="w-6 h-4 object-cover"
+            />
+
             <span className="ml-2 text-gray-600">+91</span>
           </div>
+
           <input
             type="tel"
             name="phone"
@@ -176,35 +231,46 @@ const handleSubmit = async (e) => {
             onChange={handleChange}
             maxLength={10}
             required
+            disabled={isSubmitting}
             className="flex-1 p-3 outline-none"
           />
         </div>
 
+        {/* Description */}
         <textarea
           name="description"
           placeholder="Project Description"
           value={formData.description}
           onChange={handleChange}
-          className="w-full border rounded-lg p-3 bg-[#F5F5F4]"
+          disabled={isSubmitting}
+          rows={4}
+          className="w-full border rounded-lg p-3 bg-[#F5F5F4] outline-none resize-none"
         />
 
-      
-        <div className="flex justify-start">
+        {/* CAPTCHA */}
+        {/* <div className="flex justify-start">
           <ReCAPTCHA
             sitekey="6Le5Ua0rAAAAAKOHq-C5mx8Syw3ri8Y9WMAKd1nb"
             onChange={handleCaptcha}
           />
-        </div>
+        </div> */}
 
-   
+        {/* Submit */}
         <button
           type="submit"
-          className="w-full cursor-pointer bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-sm sm:text-base"
+          disabled={isSubmitting}
+          className={`w-full py-3 rounded-lg font-semibold transition text-sm sm:text-base ${isSubmitting
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 cursor-pointer"
+            } text-white`}
         >
-          Request a Quote
+          {isSubmitting ? "Submitting..." : "Request a Quote"}
         </button>
 
-        {status && <p className="text-center text-sm mt-2">{status}</p>}
+        {/* Status */}
+        {status && (
+          <p className="text-center text-sm mt-2 font-medium">{status}</p>
+        )}
       </form>
     </div>
   );
